@@ -1,1 +1,12 @@
-
+#project-directory
+statista/
+├── app.py
+├── .venv
+├── .env
+├── .gitignore
+├── statista-project-structure
+├── templates/
+│   └── index.html
+├── nppBackup/
+│   └── app.py.2024-11-22_115328.bak
+├── charts/  # Will store generated charts
