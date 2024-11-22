@@ -29,7 +29,12 @@ statista/
 
 ```
 
-Need an API to fetch data? Consider [Cube](https://cube.dev/?ref=eco-react-chartjs), an open-source API for data apps.
+#How to Use
+Replace the existing index.html file in the templates/ directory with this updated version.
+Run the Flask application (python app.py).
+Open the app in your browser (http://127.0.0.1:5000).
+Select a category, chart type, and optional premium content, then analyze or download the data.
+This updated frontend should integrate seamlessly with the enhanced app.py backend. Let me know if you need additional updates or styling changes!
 
 <br />
 
