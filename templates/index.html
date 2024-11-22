@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statista Data Analysis</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        select, button, input[type="checkbox"] {
+            margin: 5px 0 20px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        #chart-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+        #chart {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Statista Data Analysis</h1>
+
+    <label for="category">Choose a category:</label>
+    <select id="category">
+        <option value="">Loading categories...</option>
+    </select>
+
+    <label for="chart-type">Choose a chart type:</label>
+    <select id="chart-type">
+        <option value="pie">Pie</option>
+        <option value="bar">Bar</option>
+        <option value="line">Line</option>
+    </select>
+
+    <label for="premium">
+        <input type="checkbox" id="premium"> Include Premium Content
+    </label>
+
+    <button id="analyze">Analyze</button>
+    <button id="download-csv">Download CSV</button>
+
+    <div id="chart-container">
+        <img id="chart" src="" alt="Chart will appear here">
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Populate Dropdown
+            $.get('/get_categories', function (data) {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    $('#category').empty().append('<option value="">Select a category</option>');
+                    data.forEach(category => {
+                        $('#category').append(
+                            `<option value="${category.name}">${category.name} - ${category.description}</option>`
+                        );
+                    });
+                }
+            });
+
+            // Analyze Button
+            $('#analyze').click(function () {
+                const category = $('#category').val();
+                const chartType = $('#chart-type').val();
+                const includePremium = $('#premium').is(':checked');
+
+                if (!category) {
+                    alert('Please select a category.');
+                    return;
+                }
+
+                $.ajax({
+                    url: '/analyze_data',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        category_id: category,
+                        chart_type: chartType,
+                        premium: includePremium
+                    }),
+                    success: function (data) {
+                        if (data.error) {
+                            alert(data.error);
+                        } else {
+                            $('#chart').attr('src', data.chart_url);
+                        }
+                    }
+                });
+            });
+
+            // Download CSV Button
+            $('#download-csv').click(function () {
+                const category = $('#category').val();
+                const includePremium = $('#premium').is(':checked');
+
+                if (!category) {
+                    alert('Please select a category.');
+                    return;
+                }
+
+                $.ajax({
+                    url: '/download_csv',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        category_id: category,
+                        premium: includePremium
+                    }),
+                    success: function (data) {
+                        if (data.error) {
+                            alert(data.error);
+                        } else {
+                            window.location.href = data.csv_url;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
