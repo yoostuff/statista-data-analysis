@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie and Line Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        canvas {
+            margin: 20px 0;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chart.js Example</h1>
 
+    <h2>Pie Chart</h2>
+    <canvas id="pieChart" width="400" height="400"></canvas>
+
+    <h2>Line Chart</h2>
+    <canvas id="lineChart" width="400" height="400"></canvas>
+
+    <script>
+        // Data for the Pie Chart
+        const pieData = {
+            labels: ['Category A', 'Category B', 'Category C', 'Category D'],
+            datasets: [{
+                data: [30, 20, 25, 25], // Values for the pie slices
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'], // Slice colors
+                hoverOffset: 4
+            }]
+        };
+
+        // Data for the Line Chart
+        const lineData = {
+            labels: ['January', 'February', 'March', 'April', 'May'], // X-axis labels
+            datasets: [{
+                label: 'Sales Over Time',
+                data: [10, 15, 20, 25, 30], // Y-axis values
+                fill: false, // No area fill under the line
+                borderColor: '#36A2EB', // Line color
+                tension: 0.1 // Smoothness of the line
+            }]
+        };
+
+        // Configuration for the Pie Chart
+        const pieConfig = {
+            type: 'pie',
+            data: pieData
+        };
+
+        // Configuration for the Line Chart
+        const lineConfig = {
+            type: 'line',
+            data: lineData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top' // Legend position
+                    },
+                    tooltip: {
+                        enabled: true // Enable tooltips
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Months' // X-axis title
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Sales (in units)' // Y-axis title
+                        }
+                    }
+                }
+            }
+        };
+
+        // Render the Pie Chart
+        const pieCtx = document.getElementById('pieChart').getContext('2d');
+        new Chart(pieCtx, pieConfig);
+
+        // Render the Line Chart
+        const lineCtx = document.getElementById('lineChart').getContext('2d');
+        new Chart(lineCtx, lineConfig);
+    </script>
+</body>
+</html>
