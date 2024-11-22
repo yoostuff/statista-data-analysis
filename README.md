@@ -20,12 +20,14 @@ statista/
 ├── .venv
 ├── .env
 ├── .gitignore
+├── requirements.txt
 ├── statista-project-structure
 ├── templates/
 │   └── index.html
 ├── nppBackup/
 │   └── app.py.2024-11-22_115328.bak
 ├── charts/  # Will store generated charts
+│   └── charts.html #example
 
 ```
 
