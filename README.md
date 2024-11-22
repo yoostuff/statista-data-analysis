@@ -3,20 +3,15 @@ Retrieve insights from Statista and display line-or-pie chart via webpage
 
 ## Quickstart - Pre-requisites
 
-Download and Install Python (3.10 or above)
-Activate Virtual Environment: 
-```pip
+Download and Install Python (3.10 or above). Activate Virtual Environment and Install these libraries with peer dependencies:
+
+```
 python -m venv .venv 
-```pip
 
-Install these libraries with peer dependencies:
-
-```pip
 python -m pip install flask flask-cors requests matplotlib pandas matplotlib python-dotenv 
 ```
 
-Create the following directory structure:
-Then, import and use individual components as required: 
+Create the following directory structure. Then, import and use individual components as required: 
 git clone https://github.com/yoostuff/statista-data-analysis.git
 
 ```pip
@@ -43,5 +38,5 @@ The updated frontend should integrate seamlessly with the enhanced app.py backen
 
 ## Request API access:
 
-Create an accout with <a href="https://www.statista.com>here</a>
+Create an accout with <a href="https://www.statista.com">here</a>
 Request API key access <a href="https://www.statista.com/1/request/custom-solution/1/form/corporate">here:</a> 
