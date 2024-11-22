@@ -8,7 +8,7 @@ Download and Install Python (3.10 or above). Activate Virtual Environment and In
 ```
 python -m venv .venv 
 
-python -m pip install flask flask-cors requests matplotlib pandas matplotlib python-dotenv 
+python -m pip install flask flask-cors requests matplotlib pandas python-dotenv 
 ```
 
 Create the following directory structure. Then, import and use individual components as required: 
