@@ -1,5 +1,5 @@
 # statista-data-analysis
-Retrieve insights from Statista and display line-or-pie chart via webpage
+Retrieve insights from Statista and display Line-or-Pie chart via webpage
 
 ## Quickstart - Pre-requisites
 
@@ -38,5 +38,5 @@ The updated frontend should integrate seamlessly with the enhanced app.py backen
 
 ## Request API access:
 
-Create an accout with <a href="https://www.statista.com">here</a>
+Create an accout with Statista <a href="https://www.statista.com">here</a>
 Request API key access <a href="https://www.statista.com/1/request/custom-solution/1/form/corporate">here:</a> 
