@@ -1,15 +1,16 @@
 # statista-data-analysis
 Retrieve insights from Statista and display via webpage
 
-## Quickstart - Prerequisites
+## Quickstart - Pre-requisites
 
-Install these libraries with peer dependencies:
-Create an accout with https://www.statista.com
-Request API key access here: https://www.statista.com/1/request/custom-solution/1/form/corporate 
+Download and install Setup python (3.7 or above)
+Setup virtual environment: python -m venv .venv
+Activate virtual envirnment and install these libraries with peer dependencies:
 
 ```pip
 python -m pip install flask flask-cors requests matplotlib pandas matplotlib python-dotenv 
 ```
+
 Create the following directory structure:
 Then, import and use individual components as reuqired: 
 git clone https://github.com/yoostuff/statista-data-analysis.git
@@ -28,16 +29,15 @@ statista/
 ├── charts/  # Will store generated charts
 
 ```
+
 ## How to Use
 
-Install dependencies, see pre-requisites above
 Run the Flask application (python app.py).
 Open the app in your browser (http://127.0.0.1:5000).
 Select a category, chart type, and optional premium content, then analyze or download the data.
-This updated frontend should integrate seamlessly with the enhanced app.py backend. Let me know if you need additional updates or styling changes!
+This updated frontend should integrate seamlessly with the enhanced app.py backend. Style as per your desire!
 
-## License
+## Request API access:
 
-[MIT Licensed](LICENSE)
-Copyright (c) 2020 Jeremy Ayerst
-
+Create an accout with <a href="https://www.statista.com>here</a>
+Request API key access <a href="https://www.statista.com/1/request/custom-solution/1/form/corporate">here:</a> 
