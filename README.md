@@ -1,5 +1,5 @@
 # statista-data-analysis
-Retrieve insights from Statista and display Line-or-Pie chart via webpage
+Retrieve insights from Statista API and display Line-or-Pie chart via webpage
 
 ## Quickstart - Pre-requisites
 
